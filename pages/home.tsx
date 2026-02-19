@@ -4,7 +4,6 @@ export default function Home() {
       <div className="text-center p-5  rounded shadow-sm bg-light">
         <h1 className="text-primary mb-3">Welcome to My E-Commerce App</h1>
         </div>
-      </div>
-   
+      </div>   
   );
 }
