@@ -44,7 +44,7 @@ export default async function Product({
             className="card m-3 p-3 shadow-sm"
             style={{ width: "220px", backgroundColor: "#f8e6f0" }}
           >
-            <Link href={`/Product/${p.id}`}>
+            <Link href={`/product/${p.id}`}>
               <img
                 src={p.image}
                 alt={p.title}

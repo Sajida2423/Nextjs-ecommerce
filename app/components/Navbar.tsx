@@ -65,8 +65,8 @@ export default function Navbar() {
 
             <li className="nav-item">
               <Link style={{ color: 'white', textDecoration: 'none' }}
-                href="/Product"
-                className={`nav-link ${pathname === "/Product" ? "active text-success fw-bold" : ""}`}
+                href="/product"
+                className={`nav-link ${pathname === "/product" ? "active text-success fw-bold" : ""}`}
               >
                 Products
               </Link>
@@ -110,7 +110,7 @@ export default function Navbar() {
         e.preventDefault();
         const form = e.currentTarget;
         const input = form.search.value;
-        router.push(`/Product?search=${input}`);
+        router.push(`/product?search=${input}`);
       }}
     >
       <input
@@ -124,19 +124,6 @@ export default function Navbar() {
         Search
       </button>
     </form>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
           {/* <form className="d-flex" role="search">
         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
