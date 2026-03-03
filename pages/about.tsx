@@ -1,4 +1,4 @@
-import styles from "../pages/styles/About.module.css";
+
 export default function About() {
   return (
     <div className="aboutus d-flex flex-column min-vh-100 container-fluid  justify-content-center" style={{backgroundColor:"#f0c9e0"}}>

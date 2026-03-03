@@ -1,7 +1,5 @@
 import { Servicebase } from "./service-base"
 
-
-
 export type product = {
   id: number;
   title: string;
@@ -10,8 +8,6 @@ export type product = {
   category: string;
   image: string;
 };
-
-
 
 export class Productservice extends Servicebase{
 static async getallproducts () {

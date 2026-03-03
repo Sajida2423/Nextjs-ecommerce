@@ -9,8 +9,6 @@ export default function layout( {
 
   return (
     <div>
-       
-        {/* this is product layout page */}    
         {children}
   
     </div>

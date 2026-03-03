@@ -1,4 +1,4 @@
-'use client'; // needed if using any client-side hooks or interactivity
+'use client'; 
 
 import Link from 'next/link';
 import styles from '../styles/footer.module.css'
