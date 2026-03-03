@@ -1,4 +1,3 @@
-
 import { Productservice } from "@/app/Service/product-service";
 import AddToCartButton from "@/app/components/AddToCartButton";
 
@@ -44,4 +43,3 @@ export default async function Detailpage(props: any) {
     </div>
   );
 }
-

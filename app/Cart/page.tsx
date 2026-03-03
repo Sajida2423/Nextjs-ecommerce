@@ -79,3 +79,22 @@ export default function CartPage() {
   
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

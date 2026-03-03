@@ -1,4 +1,3 @@
-
 import Link from "next/link";
 import { Productservice, product } from "../Service/product-service";
 
