@@ -57,9 +57,11 @@
 // };
 
 
+
+
 "use client";
 
-import { createContext, useContext, useState, ReactNode } from "react";
+import { createContext, useContext, useState, useEffect, ReactNode } from "react";
 import { useRouter } from "next/navigation";
 
 type AuthContextType = {
@@ -74,6 +76,11 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [token, setToken] = useState<string | null>(null);
   const router = useRouter();
 
+  useEffect(() => {
+    const saved = localStorage.getItem("token");
+    if (saved) setToken(saved);
+  }, []);
+
   const login = async (username: string, password: string) => {
     try {
       const res = await fetch("https://dummyjson.com/auth/login", {
@@ -81,33 +88,26 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password }),
       });
-
-      if (!res.ok) return false;
-
       const data = await res.json();
-
       if (data.token) {
         setToken(data.token);
-        router.push("/cart"); // redirect after login
+        localStorage.setItem("token", data.token);
+        router.push("/cart");
         return true;
       }
       return false;
-    } catch (err) {
-      console.error("Login error:", err);
+    } catch {
       return false;
     }
   };
 
   const logout = () => {
     setToken(null);
-    router.push("/login"); // redirect after logout
+    localStorage.removeItem("token");
+    router.push("/login");
   };
 
-  return (
-    <AuthContext.Provider value={{ token, login, logout }}>
-      {children}
-    </AuthContext.Provider>
-  );
+  return <AuthContext.Provider value={{ token, login, logout }}>{children}</AuthContext.Provider>;
 };
 
 export const useAuth = () => {
