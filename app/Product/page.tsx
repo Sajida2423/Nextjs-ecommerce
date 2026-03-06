@@ -138,17 +138,17 @@
 // // }
 
 
-
 import Link from "next/link";
 import { Productservice, product } from "../Service/product-service";
 
-export default async function Product({
+export default async function ProductPage({
   searchParams,
 }: {
   searchParams: { [key: string]: string | string[] | undefined };
 }) {
-  const products: product[] = await Productservice.getallproducts();
   const query = searchParams?.search;
+
+  const products: product[] = await Productservice.getallproducts();
 
   const searchTerm =
     typeof query === "string" ? query : Array.isArray(query) ? query[0] : "";
@@ -172,27 +172,28 @@ export default async function Product({
 
       <div className="d-flex flex-wrap justify-content-center">
         {filteredProducts.map((p) => (
-          <Link
-            href={`/product/${p.id}`}
+          <div
             key={p.id}
-            className="text-decoration-none text-dark"
+            className="card m-3 p-3 shadow-sm"
+            style={{ width: "220px", backgroundColor: "#f8e6f0" }}
           >
-            <div
-              className="card m-3 p-3 shadow-sm"
-              style={{ width: "220px", backgroundColor: "#f8e6f0" }}
-            >
+            <Link href={`/product/${p.id}`}>
               <img
                 src={p.image}
                 alt={p.title}
-                style={{ height: "100px", objectFit: "contain" }}
+                style={{
+                  height: "100px",
+                  objectFit: "contain",
+                }}
                 className="mx-auto d-block"
               />
-              <div className="text-center mt-2">
-                <h6>{p.title.substring(0, 40)}...</h6>
-                <p className="fw-bold">₹{p.price}</p>
-              </div>
+            </Link>
+
+            <div className="text-center mt-2">
+              <h6>{p.title.substring(0, 40)}...</h6>
+              <p className="fw-bold">₹{p.price}</p>
             </div>
-          </Link>
+          </div>
         ))}
       </div>
 

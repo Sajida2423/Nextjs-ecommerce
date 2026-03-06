@@ -1,27 +1,22 @@
 // import type { NextConfig } from "next";
 
 // const nextConfig: NextConfig = {
-//   images:{
-//     remotePatterns:[
-// {
-//  protocol:"https",
-//  hostname:"fakestoreapi.com",
-// },
-//     ],
-//   },
+//   /* config options here */
 // };
 
+// export default nextConfig;
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+
+// next.config.js
+import type { NextConfig } from "next";
+
+const nextConfig: NextConfig = {
   images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "fakestoreapi.com",
-      },
-    ],
+    domains: ["i.dummyjson.com"], // allow external images
   },
+  // You can add other config options here
 };
 
-module.exports = nextConfig;
+export default nextConfig;
+
+
