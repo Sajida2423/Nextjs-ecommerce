@@ -12,7 +12,7 @@ export default function CartPage() {
   const { cart, removeFromCart } = useCart();
   const router = useRouter();
 
-  // Redirect to login if not logged in
+
   useEffect(() => {
     if (!token) {
       router.push("/login?redirect=/cart");
