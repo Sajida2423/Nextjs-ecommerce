@@ -137,7 +137,6 @@
 // //   );
 // // }
 
-
 import Link from "next/link";
 import { Productservice, product } from "../Service/product-service";
 
@@ -158,7 +157,7 @@ export default async function ProductPage({
         const title = p.title.toLowerCase();
         const search = searchTerm.toLowerCase();
         const words = title.split(/\s+/);
-        return words.some((word) => word.startsWith(search));
+        return words.some((word:any) => word.startsWith(search));
       })
     : products;
 
@@ -179,7 +178,7 @@ export default async function ProductPage({
           >
             <Link href={`/product/${p.id}`}>
               <img
-                src={p.image}
+                src={p.images[0]} // DummyJSON uses images array
                 alt={p.title}
                 style={{
                   height: "100px",
