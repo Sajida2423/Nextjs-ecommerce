@@ -97,21 +97,18 @@ import AddToCartButton from "@/app/components/AddToCartButton";
 
 export default async function Detailpage({ params }: any) {
   // Unwrap the promise
-  const resolvedParams = await params; 
+  const resolvedParams = await params;
   const productIdStr = resolvedParams?.productid;
 
-  // Guard: missing or invalid productid
   if (!productIdStr) {
     return <h2 className="text-center mt-5">Invalid product ID</h2>;
   }
 
   const id = Number(productIdStr);
-
   if (isNaN(id)) {
     return <h2 className="text-center mt-5">Invalid product ID</h2>;
   }
 
-  // Fetch product
   const singleproduct = await Productservice.getproductbyid(id);
 
   if (!singleproduct) {
