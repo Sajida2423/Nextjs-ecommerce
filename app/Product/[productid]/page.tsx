@@ -47,15 +47,13 @@ export default async function Detailpage(props: any)
 
 
 
-
 // import { Productservice } from "@/app/Service/product-service";
 // import AddToCartButton from "@/app/components/AddToCartButton";
 
 // export default async function Detailpage({ params }: any) {
 
-//   // const prodid = params.productid;
-//   const {productid}=params
-//   const id=Number(productid)
+//   const { productid } = params;
+//   const id = Number(productid);
 
 //   const singleproduct = await Productservice.getproductbyid(id);
 
@@ -93,11 +91,9 @@ export default async function Detailpage(props: any)
 //             </div>
 
 //           </div>
-
 //         </div>
 //       </div>
 //     </div>
 //   );
 // }
-
 
