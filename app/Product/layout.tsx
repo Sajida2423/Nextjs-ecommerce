@@ -1,5 +1,5 @@
 import React from 'react'
-import { AuthProvider } from '../context/AuthContext';
+// import { AuthProvider } from '../context/AuthContext';
 import { CartProvider } from '../context/CartContext';
 export default function layout( {
     children,

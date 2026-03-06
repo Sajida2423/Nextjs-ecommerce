@@ -84,19 +84,19 @@
 
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { useAuth } from "@/app/context/AuthContext";
+// import { useAuth } from "@/app/context/AuthContext";
 import { useCart } from "@/app/context/CartContext";
 
 export default function CartPage() {
-  const { token } = useAuth();
+  // const { token } = useAuth();
   const { cart, removeFromCart, totalPrice } = useCart();
   const router = useRouter();
 
-  useEffect(() => {
-    if (!token) router.push("/login?redirect=/cart");
-  }, [token, router]);
+  // useEffect(() => {
+  //   if (!token) router.push("/login?redirect=/cart");
+  // }, [token, router]);
 
-  if (!token) return <p>Redirecting to Login...</p>;
+  // if (!token) return <p>Redirecting to Login...</p>;
 
   return (
     <div className="container mt-4 d-flex flex-column min-vh-100">
@@ -110,9 +110,11 @@ export default function CartPage() {
           <div>
             <p>{item.title}</p>
             <p>₹{item.price} × {item.quantity}</p>
+      
           </div>
           <button className="btn btn-danger btn-sm" onClick={() => removeFromCart(item.id)}>Remove</button>
         </div>
+             
       ))}
 
       {cart.length > 0 && <h4>Total: ₹{totalPrice.toFixed(2)}</h4>}

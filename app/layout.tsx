@@ -30,7 +30,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { CartProvider } from "./context/CartContext";
-import { AuthProvider } from "./context/AuthContext";
+// import { AuthProvider } from "./context/AuthContext";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -39,13 +39,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <title>SmartCart</title>
       </head>
       <body className="d-flex flex-column min-vh-100">
-        <AuthProvider>
+        {/* <AuthProvider> */}
           <CartProvider>
             <Navbar />
             <main className="flex-grow-1">{children}</main>
             <Footer />
           </CartProvider>
-        </AuthProvider>
+        {/* </AuthProvider> */}
       </body>
     </html>
   );
