@@ -1,13 +1,27 @@
-import type { NextConfig } from "next";
+// import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {
-  images:{
-    remotePatterns:[
-{
- protocol:"https",
- hostname:"fakestoreapi.com",
-},
+// const nextConfig: NextConfig = {
+//   images:{
+//     remotePatterns:[
+// {
+//  protocol:"https",
+//  hostname:"fakestoreapi.com",
+// },
+//     ],
+//   },
+// };
+
+
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "fakestoreapi.com",
+      },
     ],
   },
 };
-export default nextConfig;
+
+module.exports = nextConfig;
